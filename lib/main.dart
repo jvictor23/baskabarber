@@ -19,7 +19,7 @@ void main() {
         primaryColor: Color(0xff4e6fe3),
         buttonColor: Color(0xff69b0f1),
         accentColor: Color(0xffc4c4c4),
-        brightness: Brightness.dark
+        brightness: Brightness.light
       ),
     )
   );
