@@ -11,6 +11,7 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   bool _checkbox = false;
   bool _status = false;
+  bool _opacity = false;
   int _corLetras = Cores().corLetras;
 
   @override
@@ -23,6 +24,15 @@ class _RegisterPageState extends State<RegisterPage> {
                 _corLetras = 0xff000000;
               })
             });
+
+ Timer(
+        Duration(seconds: 4),
+        () => {
+              setState(() {
+                _opacity = true;
+              })
+            });
+           
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -31,7 +41,7 @@ class _RegisterPageState extends State<RegisterPage> {
         children: [
           Align(
             child: AnimatedContainer(
-              duration: Duration(seconds: 2),
+              duration: Duration(milliseconds: 1500),
               width: MediaQuery.of(context).size.width,
               height: _status ? MediaQuery.of(context).size.height * 0.78 : 0,
               decoration: BoxDecoration(
@@ -41,7 +51,10 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             alignment: Alignment.bottomCenter,
           ),
-          Expanded(
+          AnimatedOpacity(
+            opacity: _opacity ? 1 : 0,
+            curve: Curves.fastOutSlowIn,
+            duration: Duration(milliseconds: 1500),
             child: SingleChildScrollView(
               child: Container(
                   child: Padding(
@@ -112,30 +125,33 @@ class _RegisterPageState extends State<RegisterPage> {
                           Container(
                               decoration: const BoxDecoration(
                                 border: Border(
-                                  top:
-                                      BorderSide(width: 3.0, color: Colors.black),
-                                  left:
-                                      BorderSide(width: 3.0, color: Colors.black),
-                                  right:
-                                      BorderSide(width: 3.0, color: Colors.black),
-                                  bottom:
-                                      BorderSide(width: 3.0, color: Colors.black),
+                                  top: BorderSide(
+                                      width: 3.0, color: Colors.black),
+                                  left: BorderSide(
+                                      width: 3.0, color: Colors.black),
+                                  right: BorderSide(
+                                      width: 3.0, color: Colors.black),
+                                  bottom: BorderSide(
+                                      width: 3.0, color: Colors.black),
                                 ),
                               ),
-                              child: Checkbox(value: _checkbox, onChanged: (toque){
-                                setState(() {
-                                  _checkbox = toque;
-                                });
-                              }, activeColor: Colors.black,),
-                              
+                              child: Checkbox(
+                                value: _checkbox,
+                                onChanged: (toque) {
+                                  setState(() {
+                                    _checkbox = toque;
+                                  });
+                                },
+                                activeColor: Colors.black,
+                              ),
                               width: 20,
                               height: 20),
                           Padding(
                             padding: EdgeInsets.only(left: 10),
                             child: Text(
-                            "Li e concordo com os termos",
-                            style: TextStyle(color: Color(_corLetras)),
-                          ),
+                              "Li e concordo com os termos",
+                              style: TextStyle(color: Color(_corLetras)),
+                            ),
                           )
                         ],
                       ),
