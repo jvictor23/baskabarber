@@ -15,9 +15,11 @@ class _RegisterPageState extends State<RegisterPage> {
   int _corLetras = Cores().corLetras;
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+
     Timer(
-        Duration(seconds: 2),
+        Duration(milliseconds: 500),
         () => {
               setState(() {
                 _status = true;
@@ -26,13 +28,17 @@ class _RegisterPageState extends State<RegisterPage> {
             });
 
  Timer(
-        Duration(seconds: 4),
+        Duration(milliseconds: 1600),
         () => {
               setState(() {
                 _opacity = true;
               })
             });
-           
+  }
+
+  @override
+  Widget build(BuildContext context) {
+               
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -41,7 +47,7 @@ class _RegisterPageState extends State<RegisterPage> {
         children: [
           Align(
             child: AnimatedContainer(
-              duration: Duration(milliseconds: 1500),
+              duration: Duration(milliseconds: 1100),
               width: MediaQuery.of(context).size.width,
               height: _status ? MediaQuery.of(context).size.height * 0.78 : 0,
               decoration: BoxDecoration(
@@ -54,7 +60,7 @@ class _RegisterPageState extends State<RegisterPage> {
           AnimatedOpacity(
             opacity: _opacity ? 1 : 0,
             curve: Curves.fastOutSlowIn,
-            duration: Duration(milliseconds: 1500),
+            duration: Duration(milliseconds: 1400),
             child: SingleChildScrollView(
               child: Container(
                   child: Padding(

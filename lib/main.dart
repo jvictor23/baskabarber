@@ -1,4 +1,5 @@
 
+import 'package:baskabarber/Pages/Login_Page/Login_Page.dart';
 import 'package:baskabarber/Pages/Register_Page/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,7 +13,7 @@ void main() {
 
   runApp(
     MaterialApp(
-      home: RegisterPage(),
+      home: LoginPage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Color(0xff4e6fe3),
