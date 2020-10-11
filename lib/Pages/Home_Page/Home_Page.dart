@@ -1,4 +1,6 @@
-import 'package:baskabarber/Pages/Home_Page/childs/listagem_funcionarios.dart';
+import 'package:baskabarber/Pages/Home_Page/childs/home/home.dart';
+import 'package:baskabarber/Pages/Home_Page/childs/listagem_funcionarios/listagem_funcionarios.dart';
+import 'package:baskabarber/Pages/Home_Page/childs/perfil/perfil.dart';
 import 'package:flutter/material.dart';
 import 'package:jumping_bottom_nav_bar/jumping_bottom_nav_bar.dart';
 
@@ -15,21 +17,28 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double alturaTela = MediaQuery.of(context).size.height;
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("Bottom Bar Page"),
-        ),
-        body: TabBarView(
+        body: Column(
           children: [
-            new Container(
-              color: Colors.white,
+            Padding(
+              padding: EdgeInsets.only(top: 8),
+              child: Image.asset(
+                "images/harden.png",
+                height: alturaTela * 0.19,
+              ),
             ),
-            new Container(
-              color: Colors.white,
-            ),
-            ListagemFuncionarios(),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  ListagemFuncionarios(),
+                  Home(),
+                  Perfil(),
+                ],
+              ),
+            )
           ],
         ),
         bottomNavigationBar: JumpingTabBar(
@@ -45,13 +54,11 @@ class _HomePageState extends State<HomePage> {
           ),
           items: [
             TabItemIcon(
-                iconData: Icons.person_add_outlined,
-                curveColor: Color(0xff4e6fe3)),
-            TabItemIcon(
-                iconData: Icons.home_outlined, curveColor: Colors.white),
-            TabItemIcon(
                 iconData: Icons.supervised_user_circle,
                 curveColor: Color(0xff4e6fe3)),
+            TabItemIcon(
+                iconData: Icons.home_outlined, curveColor: Color(0xff4e6fe3)),
+            TabItemIcon(iconData: Icons.store, curveColor: Color(0xff4e6fe3)),
           ],
           selectedIndex: selectedIndex,
         ),
