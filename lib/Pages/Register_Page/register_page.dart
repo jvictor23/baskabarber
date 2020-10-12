@@ -27,7 +27,7 @@ class _RegisterPageState extends State<RegisterPage> {
               })
             });
 
- Timer(
+    Timer(
         Duration(milliseconds: 1600),
         () => {
               setState(() {
@@ -38,7 +38,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-               
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -170,7 +169,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         onPressed: () {},
                         child: Text("Criar Conta"),
                       ),
-                    )
+                    ),
                   ],
                 ),
               )),

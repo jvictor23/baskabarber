@@ -88,7 +88,13 @@ class _ListagemFuncionariosState extends State<ListagemFuncionarios> {
           onPressed: () {},
           backgroundColor: Color(0xff4e6fe3),
           label: Row(
-            children: [Icon(Icons.add), Text("Adicionar")],
+            children: [
+              Icon(Icons.add, color: Colors.white),
+              Text(
+                "Adicionar",
+                style: TextStyle(color: Colors.white),
+              )
+            ],
           )),
     );
   }

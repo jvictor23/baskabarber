@@ -12,7 +12,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int selectedIndex = 2;
   void onChangeTab(int index) {
-    selectedIndex = index;
+    setState(() {
+      selectedIndex = index;
+    });
   }
 
   @override
