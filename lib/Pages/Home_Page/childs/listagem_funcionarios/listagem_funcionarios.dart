@@ -1,3 +1,4 @@
+import 'package:baskabarber/Pages/Home_Page/childs/listagem_funcionarios/visualizar_funcionarios/cadastrar_funcionario/cadastrar_funcionario.dart';
 import 'package:baskabarber/Pages/Home_Page/childs/listagem_funcionarios/visualizar_funcionarios/visualizar_funcionarios.dart';
 import 'package:baskabarber/models/Funcionario.dart';
 import 'package:flutter/cupertino.dart';
@@ -85,7 +86,12 @@ class _ListagemFuncionariosState extends State<ListagemFuncionarios> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context,
+                CupertinoPageRoute(
+                    builder: (context) => AdicionarFuncionario()));
+          },
           backgroundColor: Color(0xff4e6fe3),
           label: Row(
             children: [
